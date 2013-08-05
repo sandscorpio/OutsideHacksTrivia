@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseInstallation;
@@ -15,6 +16,7 @@ public class Login extends Activity {
 	private static final int RESULT_CHECK_FOR_BUNDLES = RESULT_FIRST_USER;
 	
 	private Button btnFacebook, btnTwitter;
+	private RelativeLayout lay;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +24,12 @@ public class Login extends Activity {
 		setContentView(R.layout.login);
 		
 		Intent intent = getIntent();
+		
+		lay = (RelativeLayout) findViewById (R.id.lay);
 		btnFacebook = (Button) findViewById (R.id.btnFacebook);
 		btnTwitter = (Button) findViewById (R.id.btnTwitter);
 		
+		lay.setOnClickListener(btnStageClicked);
 		btnFacebook.setOnClickListener(btnStageClicked);
 		btnTwitter.setOnClickListener(btnStageClicked);
 		
