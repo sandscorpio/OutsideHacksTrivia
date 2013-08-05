@@ -33,24 +33,12 @@ public class PickStage extends Activity {
 	private OnClickListener btnStageClicked = new OnClickListener() {
 		public void onClick(View v) {		
 			Button btn = (Button) v;
-			int stageNumber = 0;
-			if (btn.equals(btnStage1)) {
-				stageNumber = 0;
-			}
-			else if(btn.equals(btnStage2)) {
-				stageNumber = 1;
-			}
-			else if(btn.equals(btnStage3)) {
-				stageNumber = 2;
-			}
-			else if(btn.equals(btnStage4)) {
-				stageNumber = 3;
-			}
+			String stageName = btn.getText().toString();
 			
 			//check if content locked			
-			if (!IsContentLocked.isInTimeWindow(stageNumber)) {
+			if (!IsContentLocked.isInTimeWindow(stageName)) {
 	    		Intent intent = new Intent(PickStage.this, IsContentLocked.class);
-	    		intent.putExtra("stageNumber", stageNumber);
+	    		intent.putExtra("stageName", stageName);
 	    		startActivityForResult(intent, RESULT_IS_CONTENT_LOCKED);
 			}
 			else {

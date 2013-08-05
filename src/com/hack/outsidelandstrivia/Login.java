@@ -1,12 +1,15 @@
 package com.hack.outsidelandstrivia;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
 
 public class Login extends Activity {
 	private static final int RESULT_PICK_STAGE = RESULT_FIRST_USER;
@@ -24,6 +27,11 @@ public class Login extends Activity {
 		
 		btnFacebook.setOnClickListener(btnStageClicked);
 		btnTwitter.setOnClickListener(btnStageClicked);
+		
+		ParseAnalytics.trackAppOpened(getIntent());
+		
+		ParseInstallation parseInstall = ParseInstallation.getCurrentInstallation();
+		parseInstall.saveEventually();
 	}
 	
 	private OnClickListener btnStageClicked = new OnClickListener() {

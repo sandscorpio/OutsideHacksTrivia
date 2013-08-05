@@ -61,7 +61,11 @@ public class IsContentLocked extends Activity {
 		setContentView(R.layout.activity_is_content_locked);
 		
 		Intent intent = getIntent();
-		int stageNumber = intent.getIntExtra("stageNumber", 0);	
+		String stageName = intent.getStringExtra("stageName");	
+	}
+	
+	public static boolean isInTimeWindow(String stageName) {
+		return true;
 	}
 	
 	public static boolean isInTimeWindow(int stageNumber) {

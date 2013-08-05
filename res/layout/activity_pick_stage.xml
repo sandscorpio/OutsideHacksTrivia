@@ -23,25 +23,25 @@
         <TableRow>
             <Button 
             	android:id="@+id/btnStage1"
-            	android:text="Stage 1"
+            	android:text="Lands End"
             />
         </TableRow>
         <TableRow>    
             <Button 
             	android:id="@+id/btnStage2"
-            	android:text="Stage 2"
+            	android:text="Sutro"
             />
         </TableRow>
         <TableRow>    
             <Button 
             	android:id="@+id/btnStage3"
-            	android:text="Stage 3"
+            	android:text="Twin Peaks"
             />
          </TableRow>
         <TableRow>    
             <Button 
             	android:id="@+id/btnStage4"
-            	android:text="Stage 4"
+            	android:text="Panhandle"
             />    
         </TableRow> 
     </TableLayout>
