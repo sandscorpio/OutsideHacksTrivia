@@ -11,13 +11,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" 
         android:name=".MainApplication">
         
         <activity
             android:name="com.hack.outsidelandstrivia.Login"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +25,7 @@
         
         <activity
             android:name="com.hack.outsidelandstrivia.PickStage"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -35,7 +33,7 @@
         
          <activity
             android:name="com.hack.outsidelandstrivia.IsContentLocked"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -43,7 +41,7 @@
         
           <activity
             android:name="com.hack.outsidelandstrivia.PlayGame"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -51,7 +49,7 @@
         
            <activity
             android:name="com.hack.outsidelandstrivia.IsCorrect"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -59,7 +57,7 @@
         
            <activity
             android:name="com.hack.outsidelandstrivia.CheckForBundles"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
