@@ -10,7 +10,7 @@
     <string name="txtIsContentAvail">Bundle available!</string>
     <string name="txtNoBundles">No bundles available. Come back at *</string>
     
-    <string name="txtQuestion">Where is this band from?</string>
+    <string name="txtQuestion">Loading question..</string>
     <string name="txtWelcome">Welcome to Outside Lands</string>
     <string name="txtIsCorrect">You\'re wrong dumbass!</string>
 
