@@ -8,6 +8,7 @@
     <string name="txtIsContentLocked">This content has not been unlocked. Come back 10 before or after a show.</string>
     <string name="txtChecking">Checking..</string>
     <string name="txtIsContentAvail">Bundle available!</string>
+    <string name="txtNoBundles">No bundles available. Come back at *</string>
     
     <string name="txtQuestion">Where is this band from?</string>
     <string name="txtWelcome">Welcome to Outside Lands</string>

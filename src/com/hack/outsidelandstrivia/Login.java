@@ -12,7 +12,7 @@ import com.parse.ParseAnalytics;
 import com.parse.ParseInstallation;
 
 public class Login extends Activity {
-	private static final int RESULT_PICK_STAGE = RESULT_FIRST_USER;
+	private static final int RESULT_CHECK_FOR_BUNDLES = RESULT_FIRST_USER;
 	
 	private Button btnFacebook, btnTwitter;
 	
@@ -36,8 +36,8 @@ public class Login extends Activity {
 	
 	private OnClickListener btnStageClicked = new OnClickListener() {
 		public void onClick(View v) {		
-			Intent intentPlayGame = new Intent(Login.this, PickStage.class);
-    		startActivityForResult(intentPlayGame, RESULT_PICK_STAGE);
+			Intent intentPlayGame = new Intent(Login.this, CheckForBundles.class);
+    		startActivityForResult(intentPlayGame, RESULT_CHECK_FOR_BUNDLES);
 		}
 	};
 
