@@ -4,7 +4,11 @@
     <string name="app_name">OutsideLandsTrivia</string>
     <string name="action_settings">Settings</string>
     <string name="txtPickStage">What stage are you at?</string>
-    <string name="txtIsContentLocked">This content has not been unlocked. Come back in 10 minutes.</string>
+    
+    <string name="txtIsContentLocked">This content has not been unlocked. Come back 10 before or after a show.</string>
+    <string name="txtChecking">Checking..</string>
+    <string name="txtIsContentAvail">Bundle available!</string>
+    
     <string name="txtQuestion">Where is this band from?</string>
     <string name="txtWelcome">Welcome to Outside Lands</string>
     <string name="txtIsCorrect">You\'re wrong dumbass!</string>

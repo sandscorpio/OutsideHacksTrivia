@@ -35,7 +35,11 @@ public class PickStage extends Activity {
 			Button btn = (Button) v;
 			String stageName = btn.getText().toString();
 			
-			//check if content locked			
+			Intent intent = new Intent(PickStage.this, IsContentLocked.class);
+    		intent.putExtra("stageName", stageName);
+    		startActivityForResult(intent, RESULT_IS_CONTENT_LOCKED);
+			
+			/*//check if content locked			
 			if (!IsContentLocked.isInTimeWindow(stageName)) {
 	    		Intent intent = new Intent(PickStage.this, IsContentLocked.class);
 	    		intent.putExtra("stageName", stageName);
@@ -45,7 +49,7 @@ public class PickStage extends Activity {
 				//start game as there content available
 				Intent intentPlayGame = new Intent(PickStage.this, PlayGame.class);
 	    		startActivityForResult(intentPlayGame, RESULT_PLAY_GAME);
-			}
+			}*/
 		}
 	};
 

@@ -12,7 +12,7 @@
         android:id="@+id/txtIsContentLocked"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txtIsContentLocked"
+        android:text="@string/txtChecking"
         android:gravity="center" />    
 
 </RelativeLayout>
