@@ -1,5 +1,8 @@
 package com.hack.outsidelandstrivia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,29 +12,22 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 public class PlayGame extends Activity {
 	private static final int RESULT_IS_CORRECT = RESULT_FIRST_USER;
 	
 	private TextView txtQuestion;
 	private Button btnTrue, btnFalse;
 	
-	private String[] questions = new String[] {
-		"This band is from Alabama",
-		"Dog's name is Rooky",
-		"Lead singer is Jonny Knoxville",
-		"Produced by Kevin Spacey",
-		"Went platinum this year"
-	};
-	
-	private boolean[] answerKey = new boolean[] {
-		true,
-		false,
-		true,
-		false,
-		true
-	};
-	
-	private int questionNumber = -1;
+	private String bundleId;
+	private ArrayList<String> questions = new ArrayList<String>();
+	private ArrayList<Boolean> answers = new ArrayList<Boolean>();
+	private int questionIdx = -1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +35,7 @@ public class PlayGame extends Activity {
 		setContentView(R.layout.activity_play_game);
 		
 		Intent intent = getIntent();
+		bundleId = intent.getStringExtra("bundleId");
 	
 		txtQuestion = (TextView) findViewById (R.id.txtQuestion);
 		btnTrue = (Button) findViewById (R.id.btnTrue);
@@ -47,54 +44,78 @@ public class PlayGame extends Activity {
 		btnTrue.setOnClickListener(btnTrueClicked);
 		btnFalse.setOnClickListener(btnFalseClicked);
 		
-		nextQuestion();
+		getBundle(bundleId);
 	}
 	
-	private void nextQuestion() {
-		if (questionNumber < questions.length-1) {
-			questionNumber++;
+	private void getBundle(String bundleId) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Bundles");
+		query.getInBackground(bundleId, new GetCallback<ParseObject>() {
+			@Override
+			public void done(ParseObject bundle, ParseException e) {
+				if (e == null) {
+					getTrivia(bundle);
+				}
+			}
+		});
+	}
+	
+	private void getTrivia(ParseObject bundle) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("BundleTrivia");
+		query.whereEqualTo("bundle", bundle);
+		query.findInBackground(new FindCallback<ParseObject>() {
+		    public void done(List<ParseObject> trivia, ParseException e) {
+		        if (e == null) {
+		        	 for (ParseObject row : trivia) {
+		        		 String question = row.getString("question");
+		        		 boolean answer = row.getBoolean("answer");
+		        		 
+		        		 questions.add(question);
+		        		 answers.add(answer);
+		        	 }
+		        	 
+		        	 //display first question
+		        	 nextQuestion();
+		        }
+		        else {
+		        	//error
+		        }
+		    }
+		});
+	}
+	
+	private void nextQuestion() {			
+		if (questionIdx < questions.size()-1) {
+			questionIdx++;
 			
-			String question = questions[questionNumber];
+			String question = questions.get(questionIdx);
 			txtQuestion.setText(question);
 		}
 		else {
+			//remain at last question
+			questionIdx = questions.size()-1;
+			
 			//quiz finished
 			txtQuestion.setText("Finished!");
 			btnTrue.setVisibility(View.INVISIBLE);
 			btnFalse.setVisibility(View.INVISIBLE);
-		}
+		}	
 	}
 	
 	private OnClickListener btnTrueClicked = new OnClickListener() {
 		public void onClick(View v) {	
-			boolean answer = answerKey[questionNumber];
-			if (answer == true) {
-				//correct
-				Intent intent = new Intent(PlayGame.this, IsCorrect.class);
-	    		intent.putExtra("isCorrect", true);
-	    		startActivityForResult(intent, RESULT_IS_CORRECT);
-			}
-			else {
-				//wrong
-				Intent intent = new Intent(PlayGame.this, IsCorrect.class);
-	    		intent.putExtra("isCorrect", false);
-	    		startActivityForResult(intent, RESULT_IS_CORRECT);
-			}
+			boolean answer = answers.get(questionIdx);			
+			Intent intent = new Intent(PlayGame.this, IsCorrect.class);
+			intent.putExtra("isCorrect", answer == true);
+			startActivityForResult(intent, RESULT_IS_CORRECT);
 		}
 	};
 	
 	private OnClickListener btnFalseClicked = new OnClickListener() {
 		public void onClick(View v) {		
-			boolean answer = answerKey[questionNumber];
+			boolean answer = answers.get(questionIdx);
+			
 			Intent intent = new Intent(PlayGame.this, IsCorrect.class);
-			if (answer == false) {
-				//display is_correct
-				intent.putExtra("isCorrect", true);
-			}
-			else {
-				//display is_wrong
-				intent.putExtra("isCorrect", false);
-			}
+			intent.putExtra("isCorrect", answer == false);
 			startActivityForResult(intent, RESULT_IS_CORRECT);
 		}
 	};
