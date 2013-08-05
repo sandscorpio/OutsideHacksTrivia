@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/home"
     tools:context=".Login" >
 
     <TextView
@@ -13,13 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txtWelcome"
-        android:gravity="center" />
+        android:gravity="center"
+        android:visibility="gone" />
     
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/txtWelcome"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        android:visibility="gone">
         <TableRow>
             <Button 
             	android:id="@+id/btnFacebook"
