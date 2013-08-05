@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -38,6 +39,9 @@ public class PlayGame extends Activity {
 		bundleId = intent.getStringExtra("bundleId");
 	
 		txtQuestion = (TextView) findViewById (R.id.txtQuestion);
+		Typeface font = Typeface.createFromAsset(getAssets(), "PermanentMarker.ttf"); 
+		txtQuestion.setTypeface(font);
+		
 		btnTrue = (Button) findViewById (R.id.btnTrue);
 		btnFalse = (Button) findViewById (R.id.btnFalse);
 		

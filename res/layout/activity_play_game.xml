@@ -6,12 +6,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".PlayGame" >
+    tools:context=".PlayGame"
+    android:background="@drawable/background" >
+    
+    <ImageView 
+    	android:id="@+id/imgHeader"
+    	android:layout_width="match_parent" 
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true"   
+    	android:src="@drawable/header"
+    />
 
     <TextView
         android:id="@+id/txtQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imgHeader"
         android:text="@string/txtQuestion"
         android:textSize="25sp"
         android:gravity="center" />
