@@ -9,8 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -20,36 +19,36 @@ import com.parse.ParseQuery;
 public class CheckForBundles extends Activity {
 	private static final int RESULT_PLAY_GAME = RESULT_FIRST_USER;
 	
-	private TextView txtCheckForBundles;
-	private Button btnOK;
-	private Button btnCancel;
 	private String bundleId;
-
+	private ImageView imgDay;
+	private ImageView imgLock;
+	private ImageView btnEasy;
+	private ImageView btnTough;
+	private ImageView btnSuperFan;
+ 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.check_for_bundles);
 		
-		txtCheckForBundles = (TextView) findViewById(R.id.txtCheckForBundles);
-		btnOK = (Button) findViewById(R.id.btnOK);
-		btnCancel = (Button) findViewById(R.id.btnCancel);
+		imgDay = (ImageView) findViewById(R.id.imgDay);
+		imgLock = (ImageView) findViewById(R.id.imgLock);
+		btnEasy = (ImageView) findViewById(R.id.btnEasy);
+		btnTough = (ImageView) findViewById(R.id.btnTough);
+		btnSuperFan = (ImageView) findViewById(R.id.btnSuperFan);
 		
-		btnOK.setVisibility(View.INVISIBLE);
-		btnCancel.setOnClickListener(new OnClickListener() {
+		//TODO: set day image
+
+		imgLock.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				finish();
 			}
 		});
 		
-		btnOK.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-        		Intent intentPlayGame = new Intent(CheckForBundles.this, PlayGame.class);
-        		intentPlayGame.putExtra("bundleId", bundleId);
-	    		startActivityForResult(intentPlayGame, RESULT_PLAY_GAME);
-			}
-		});
+		btnEasy.setOnClickListener(playClicked);
+		btnTough.setOnClickListener(playClicked);
+		btnSuperFan.setOnClickListener(playClicked);
 	
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Bundles");
 		query.findInBackground(new FindCallback<ParseObject>() {
@@ -64,9 +63,8 @@ public class CheckForBundles extends Activity {
 		            	if (true || now.after(startTime) && now.before(endTime)) {
 		            		//start game with this bundle
 		            		bundleId = bundle.getObjectId();
-		            		txtCheckForBundles.setText(getResources().getString(R.string.txtIsContentAvail));
-		            		
-		            		btnOK.setVisibility(View.VISIBLE);
+
+		            		//TODO: show easy/tough/superfan buttons
 		            		return;
 		            	}
 		            }
@@ -83,14 +81,24 @@ public class CheckForBundles extends Activity {
 		            //no bundles available
 		            String txtNoBundles = getResources().getString(R.string.txtNoBundles);
 		            txtNoBundles = txtNoBundles.replace("*", earliestBundle.toString());
-		            txtCheckForBundles.setText(txtNoBundles);
 		        } 
 		        else {
-		            txtCheckForBundles.setText("Error");
+		        	//Error
 		        }
 		    }
 		});
 	}
+	
+	private OnClickListener playClicked = new OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			//TODO: set level based on btn clicked
+			
+    		Intent intentPlayGame = new Intent(CheckForBundles.this, PlayGame.class);
+    		intentPlayGame.putExtra("bundleId", bundleId);
+    		startActivityForResult(intentPlayGame, RESULT_PLAY_GAME);
+		}
+	};
 	
 	public static boolean isInTimeWindow(String stageName) {
 		return true;

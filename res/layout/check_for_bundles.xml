@@ -6,31 +6,64 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
     tools:context=".CheckForBundles" >
-
-    <TextView
-        android:id="@+id/txtCheckForBundles"
+    
+    <ImageView
+        android:id="@+id/imgHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txtChecking"
-        android:textSize="35sp"
-        android:gravity="center" />    
+        android:src="@drawable/header"
+        android:layout_alignParentTop="true"
+        />
+    
+    <ImageView
+        android:id="@+id/imgDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/friday1"
+        android:layout_below="@id/imgHeader"
+        />
+    
+     <ImageView
+        android:id="@+id/imgBorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/border"
+        android:layout_below="@id/imgDay"
+        />  
+        
+     <ImageView
+        android:id="@+id/imgLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/locked"
+        android:layout_below="@id/imgBorder"
+        />
         
      <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/txtCheckForBundles"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgBorder"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
         android:stretchColumns="*">
         <TableRow>
-            <Button 
-            	android:id="@+id/btnOK"
-            	android:text="Lezz go"
+            <ImageView 
+            	android:id="@+id/btnEasy"
+            	android:src="@drawable/easy"
             />
         </TableRow>
         <TableRow>    
-            <Button 
-            	android:id="@+id/btnCancel"
-            	android:text="Cancel"
+            <ImageView 
+            	android:id="@+id/btnTough"
+            	android:src="@drawable/tough"
+            />
+        </TableRow>
+        <TableRow>    
+            <ImageView 
+            	android:id="@+id/btnSuperFan"
+            	android:src="@drawable/superfan"
             />
         </TableRow>
     </TableLayout>
