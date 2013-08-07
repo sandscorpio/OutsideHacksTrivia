@@ -21,32 +21,20 @@
     	android:src="@drawable/border_element"
     />
     
-     <TableLayout
-        android:id="@+id/tblBtns"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/imgBorder"
-        android:stretchColumns="*">
-        <TableRow>
-            <Button 
-            	android:id="@+id/btnTrue"
-            	android:text="True"
-            	android:background="@drawable/true_btn"
-            />
-			 <Button 
-            	android:id="@+id/btnFalse"
-            	android:text="False"
-            	android:background="@drawable/false_btn"
-            />
-		 </TableRow>
-	</TableLayout>
-	
-     <ImageView 
-    	android:id="@+id/imgArrows"
+    <Button 
+    	android:id="@+id/btnFalse"
     	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content"
-    	android:layout_above="@id/tblBtns"
-    	android:src="@drawable/arrows"
+    	android:layout_above="@id/imgBorder"   
+    	android:background="@drawable/false_btn_stacked_words"
+    />
+    
+    <Button 
+    	android:id="@+id/btnTrue"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"
+    	android:layout_above="@id/btnFalse"   
+    	android:background="@drawable/true_btn_stacked_words"
     />
 
     <TextView
@@ -54,11 +42,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgHeader"
-        android:layout_above="@id/imgArrows"
+        android:layout_above="@id/btnTrue"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:text="Quick brown fox jumped over the fence"
         android:textSize="25sp"
         android:gravity="center"
-        android:background="@drawable/sticky_note" />
+        android:background="@drawable/sticky_note_v2" />
     
    
 </RelativeLayout>
