@@ -22,11 +22,18 @@
         android:layout_alignParentBottom="true" />
     
     <ImageView
+        android:id="@+id/imgNotDumbass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/not_dumbass"
+        android:layout_above="@id/btnNext" />
+    
+    <ImageView
         android:id="@+id/imgCongrats"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/congrats"
         android:layout_below="@id/imgHeader"
-        android:layout_above="@id/btnNext" />    
+        android:layout_above="@id/imgNotDumbass" />
  
 </RelativeLayout>
