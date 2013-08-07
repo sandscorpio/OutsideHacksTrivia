@@ -15,5 +15,7 @@
     <string name="txtIsCorrect">You\'re wrong dumbass!</string>
     
     <string name="txtTwitter">\@my twitter</string>
+    <string name="txtIsWinner">\@*0 You rock! Now challenge your friends.</string>
+    <string name="txtIsLoser">\@*0 Nope dumbasss! Try some other time when you feel smart</string>
 
 </resources>

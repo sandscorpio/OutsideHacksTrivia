@@ -38,8 +38,11 @@ public class IsWinner extends Activity {
 		MainApplication app = (MainApplication) getApplication();
 		if (app.twitterId != null) {
 			//insert a row in OutgoingTweets
+			String msg = getResources().getString(R.string.txtIsWinner);
+			msg = msg.replace("*0", app.twitterId);
+			
 			ParseObject gameScore = new ParseObject("OutgoingTweets");
-			gameScore.put("tweetText", "You win!");
+			gameScore.put("tweetText", msg);
 			gameScore.put("twitterHandle", app.twitterId);
 			gameScore.saveInBackground();
 		}
