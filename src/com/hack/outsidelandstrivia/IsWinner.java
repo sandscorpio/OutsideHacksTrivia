@@ -1,5 +1,7 @@
 package com.hack.outsidelandstrivia;
 
+import com.parse.ParseObject;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ public class IsWinner extends Activity {
 	
 	private RelativeLayout lay;
 	private Button btnNext;
+	private Button btnChallenge;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +31,28 @@ public class IsWinner extends Activity {
 		
 		btnNext = (Button) findViewById (R.id.btnNext);		
 		btnNext.setOnClickListener(finishClicked);
+		
+		btnChallenge = (Button) findViewById (R.id.btnChallenge);		
+		btnChallenge.setOnClickListener(challengeClicked);
+		
+		MainApplication app = (MainApplication) getApplication();
+		if (app.twitterId != null) {
+			//insert a row in OutgoingTweets
+			ParseObject gameScore = new ParseObject("OutgoingTweets");
+			gameScore.put("tweetText", "You win!");
+			gameScore.put("twitterHandle", app.twitterId);
+			gameScore.saveInBackground();
+		}
 	}
 	
 	private OnClickListener finishClicked = new OnClickListener() {
 		public void onClick(View v) {		
 			finish();
+		}
+	};
+	
+	private OnClickListener challengeClicked = new OnClickListener() {
+		public void onClick(View v) {
 		}
 	};
 
