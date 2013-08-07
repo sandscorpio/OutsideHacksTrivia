@@ -10,9 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TableLayout;
+import android.widget.LinearLayout;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -29,7 +28,7 @@ public class CheckForBundles extends Activity {
 	private ImageView btnTough;
 	private ImageView btnSuperFan;
 	private ImageView imgHeader;
-	private TableLayout tblBtns;
+	private LinearLayout tblBtns;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class CheckForBundles extends Activity {
 		btnEasy = (ImageView) findViewById(R.id.btnEasy);
 		btnTough = (ImageView) findViewById(R.id.btnTough);
 		btnSuperFan = (ImageView) findViewById(R.id.btnSuperFan);
-		tblBtns = (TableLayout) findViewById(R.id.tblBtns);
+		tblBtns = (LinearLayout) findViewById(R.id.tblBtns);
 		
 		//set main image based on day of week and time of day
 		setImg();

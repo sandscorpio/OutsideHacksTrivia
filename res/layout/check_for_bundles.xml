@@ -15,7 +15,7 @@
     
     <ImageView
         android:id="@+id/imgDay"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/friday1"
         android:layout_below="@id/imgHeader"
@@ -37,32 +37,32 @@
         android:layout_below="@id/imgBorder"
         />
         
-     <TableLayout
+     <LinearLayout
         android:id="@+id/tblBtns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgBorder"
         android:layout_alignParentBottom="true"
         android:visibility="gone"
-        android:stretchColumns="*">
-        <TableRow>
+        android:orientation="vertical">
             <ImageView 
             	android:id="@+id/btnEasy"
+            	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
             	android:src="@drawable/easy"
-            />
-        </TableRow>
-        <TableRow>    
+            />   
             <ImageView 
             	android:id="@+id/btnTough"
+            	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
             	android:src="@drawable/tough"
-            />
-        </TableRow>
-        <TableRow>    
+            />  
             <ImageView 
             	android:id="@+id/btnSuperFan"
+            	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
             	android:src="@drawable/superfan"
             />
-        </TableRow>
-    </TableLayout>
+    </LinearLayout>
 
 </RelativeLayout>
