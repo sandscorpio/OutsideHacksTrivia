@@ -13,5 +13,7 @@
     <string name="txtQuestion">Loading question..</string>
     <string name="txtWelcome">Welcome to Outside Lands</string>
     <string name="txtIsCorrect">You\'re wrong dumbass!</string>
+    
+    <string name="txtTwitter">\@my twitter</string>
 
 </resources>

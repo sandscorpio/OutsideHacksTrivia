@@ -117,6 +117,17 @@
             </intent-filter>
         </activity>
         
+           <activity
+            android:name="com.hack.outsidelandstrivia.GetTwitter"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            android:configChanges="keyboardHidden|orientation" 
+         android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+               
+            </intent-filter>
+        </activity>
+        
     </application>
     
     <uses-permission android:name="android.permission.INTERNET" />

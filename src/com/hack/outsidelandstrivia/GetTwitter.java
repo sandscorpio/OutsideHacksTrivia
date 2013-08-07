@@ -6,36 +6,36 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.EditText;
+import android.widget.ImageView;
 
-import com.parse.ParseAnalytics;
-import com.parse.ParseInstallation;
-
-public class Start extends Activity {
+public class GetTwitter extends Activity {
 	private static final int RESULT_CHECK_FOR_BUNDLES = RESULT_FIRST_USER;
 	
-	private RelativeLayout lay;
+	private EditText txtTwitter;
+	private ImageView btnOK;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_start);
+		setContentView(R.layout.activity_twitter);
 		
 		Intent intent = getIntent();
+		txtTwitter = (EditText) findViewById (R.id.txtTwitter);		
+		btnOK = (ImageView) findViewById (R.id.btnOK);		
 		
-		lay = (RelativeLayout) findViewById (R.id.lay);		
-		lay.setOnClickListener(btnStageClicked);
-		
-		/*ParseAnalytics.trackAppOpened(getIntent());
-		
-		ParseInstallation parseInstall = ParseInstallation.getCurrentInstallation();
-		parseInstall.saveEventually();*/
+		btnOK.setOnClickListener(btnStageClicked);
 	}
 	
 	private OnClickListener btnStageClicked = new OnClickListener() {
 		public void onClick(View v) {		
-			Intent intentPlayGame = new Intent(Start.this, GetTwitter.class);
+			String twitterId = txtTwitter.getText().toString();
+			if (twitterId.length() > 0) {
+				MainApplication app = (MainApplication) getApplication();
+				app.twitterId = twitterId;
+			}
+			
+			Intent intentPlayGame = new Intent(GetTwitter.this, CheckForBundles.class);
     		startActivityForResult(intentPlayGame, RESULT_CHECK_FOR_BUNDLES);
 		}
 	};

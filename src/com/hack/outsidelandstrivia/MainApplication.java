@@ -6,6 +6,8 @@ import com.parse.Parse;
 
 public class MainApplication extends Application {
 	
+	public String twitterId;
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();
