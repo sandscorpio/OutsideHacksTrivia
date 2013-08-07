@@ -27,10 +27,10 @@ public class Start extends Activity {
 		lay = (RelativeLayout) findViewById (R.id.lay);		
 		lay.setOnClickListener(btnStageClicked);
 		
-		ParseAnalytics.trackAppOpened(getIntent());
+		/*ParseAnalytics.trackAppOpened(getIntent());
 		
 		ParseInstallation parseInstall = ParseInstallation.getCurrentInstallation();
-		parseInstall.saveEventually();
+		parseInstall.saveEventually();*/
 	}
 	
 	private OnClickListener btnStageClicked = new OnClickListener() {

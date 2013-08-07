@@ -19,7 +19,7 @@ public class IsWinner extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_is_correct);
+		setContentView(R.layout.activity_winner);
 		
 		Intent intent = getIntent();
 		

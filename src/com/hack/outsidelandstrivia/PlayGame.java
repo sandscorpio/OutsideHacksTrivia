@@ -50,6 +50,9 @@ public class PlayGame extends Activity {
 		btnTrue.setOnClickListener(btnTrueClicked);
 		btnFalse.setOnClickListener(btnFalseClicked);
 		
+		 btnTrue.setEnabled(false);
+    	 btnFalse.setEnabled(false);
+		
 		getBundle(bundleId);
 	}
 	
@@ -81,6 +84,9 @@ public class PlayGame extends Activity {
 		        	 
 		        	 //display first question
 		        	 nextQuestion();
+		        	 
+		        	 btnTrue.setEnabled(true);
+		        	 btnFalse.setEnabled(true);
 		        }
 		        else {
 		        	//error

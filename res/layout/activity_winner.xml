@@ -13,27 +13,34 @@
         android:src="@drawable/header"
         android:layout_alignParentTop="true" />
     
-    <Button
+    <ImageView 
+    	android:id="@+id/imgBorder"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"   
+    	android:src="@drawable/border_element"
+    />
+    
+     <Button
+        android:id="@+id/btnChallenge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/challenge_btn_words"
+        android:layout_above="@id/imgBorder" />
+     
+     <Button
         android:id="@+id/btnNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/orange_btn"
-        android:text="Next"
-        android:layout_alignParentBottom="true" />
+        android:background="@drawable/next_game_btn_words"
+        android:layout_above="@id/btnChallenge" />
     
     <ImageView
-        android:id="@+id/imgNotDumbass"
+        android:id="@+id/imgWinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/not_dumbass"
-        android:layout_above="@id/btnNext" />
-    
-    <ImageView
-        android:id="@+id/imgCongrats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/congrats"
+        android:src="@drawable/yr_winner_stackedtitle"
         android:layout_below="@id/imgHeader"
-        android:layout_above="@id/imgNotDumbass" />
+        android:layout_above="@id/btnNext" />
  
 </RelativeLayout>
