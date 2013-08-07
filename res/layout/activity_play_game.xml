@@ -2,44 +2,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".PlayGame"
     android:background="@drawable/background" >
     
     <ImageView 
     	android:id="@+id/imgHeader"
-    	android:layout_width="match_parent" 
+    	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content"
     	android:layout_alignParentTop="true"   
     	android:src="@drawable/header"
     />
-
-    <TextView
-        android:id="@+id/txtQuestion"
+    
+    <ImageView 
+    	android:id="@+id/imgBorder"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"   
+    	android:src="@drawable/border_element"
+    />
+    
+     <TableLayout
+        android:id="@+id/tblBtns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imgHeader"
-        android:text="@string/txtQuestion"
-        android:textSize="25sp"
-        android:gravity="center" />
-    
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/txtQuestion"
+        android:layout_above="@id/imgBorder"
         android:stretchColumns="*">
         <TableRow>
             <Button 
             	android:id="@+id/btnTrue"
             	android:text="True"
+            	android:background="@drawable/true_btn"
             />
-        </TableRow>
 			 <Button 
             	android:id="@+id/btnFalse"
             	android:text="False"
+            	android:background="@drawable/false_btn"
             />
+		 </TableRow>
 	</TableLayout>
+	
+     <ImageView 
+    	android:id="@+id/imgArrows"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"
+    	android:layout_above="@id/tblBtns"
+    	android:src="@drawable/arrows"
+    />
+
+    <TextView
+        android:id="@+id/txtQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgHeader"
+        android:layout_above="@id/imgArrows"
+        android:text="Quick brown fox jumped over the fence"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:background="@drawable/sticky_note" />
+    
+   
 </RelativeLayout>
