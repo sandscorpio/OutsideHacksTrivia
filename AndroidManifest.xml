@@ -13,13 +13,22 @@
         android:icon="@drawable/ic_launcher"
         android:name=".MainApplication">
         
+          <activity
+            android:name="com.hack.outsidelandstrivia.Start"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+ 				<category android:name="android.intent.category.LAUNCHER" />
+                
+            </intent-filter>
+        </activity>
+        
         <activity
             android:name="com.hack.outsidelandstrivia.Login"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                
             </intent-filter>
         </activity>
         
@@ -60,6 +69,7 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+               
             </intent-filter>
         </activity>
         
