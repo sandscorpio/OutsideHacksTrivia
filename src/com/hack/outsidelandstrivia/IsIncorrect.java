@@ -16,6 +16,7 @@ public class IsIncorrect extends Activity {
 	private static final int RESULT_CHECK_FOR_BUNDLES = RESULT_FIRST_USER;
 	
 	private RelativeLayout lay;
+	private Button btnNext;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,13 @@ public class IsIncorrect extends Activity {
 		Intent intent = getIntent();
 		
 		lay = (RelativeLayout) findViewById (R.id.lay);		
-		lay.setOnClickListener(btnStageClicked);
+		lay.setOnClickListener(finishClicked);
+		
+		btnNext = (Button) findViewById (R.id.btnNext);		
+		btnNext.setOnClickListener(finishClicked);
 	}
 	
-	private OnClickListener btnStageClicked = new OnClickListener() {
+	private OnClickListener finishClicked = new OnClickListener() {
 		public void onClick(View v) {		
 			finish();
 		}
