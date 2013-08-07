@@ -27,6 +27,7 @@ public class PlayGame extends Activity {
 	private Button btnTrue, btnFalse;
 	
 	private String bundleId;
+	private String level;
 	private ArrayList<String> questions = new ArrayList<String>();
 	private ArrayList<Boolean> answers = new ArrayList<Boolean>();
 	private int questionIdx = -1;
@@ -39,6 +40,7 @@ public class PlayGame extends Activity {
 		
 		Intent intent = getIntent();
 		bundleId = intent.getStringExtra("bundleId");
+		level = intent.getStringExtra("level");
 	
 		txtQuestion = (TextView) findViewById (R.id.txtQuestion);
 		Typeface font = Typeface.createFromAsset(getAssets(), "PermanentMarker.ttf"); 
@@ -71,6 +73,7 @@ public class PlayGame extends Activity {
 	private void getTrivia(ParseObject bundle) {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("BundleTrivia");
 		query.whereEqualTo("bundle", bundle);
+		query.whereEqualTo("level", level);
 		query.findInBackground(new FindCallback<ParseObject>() {
 		    public void done(List<ParseObject> trivia, ParseException e) {
 		        if (e == null) {
