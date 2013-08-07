@@ -45,7 +45,7 @@
         android:layout_above="@id/btnTrue"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:text="Quick brown fox jumped over the fence"
+        android:text="Loading.."
         android:textSize="25sp"
         android:gravity="center"
         android:background="@drawable/sticky_note_v2" />
