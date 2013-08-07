@@ -107,9 +107,9 @@ public class PlayGame extends Activity {
 	
 	private OnClickListener btnTrueClicked = new OnClickListener() {
 		public void onClick(View v) {	
-			boolean answer = answers.get(questionIdx);			
-			Intent intent = new Intent(PlayGame.this, IsCorrect.class);
-			intent.putExtra("isCorrect", answer == true);
+			boolean answer = answers.get(questionIdx);	
+			Class c = answer == true ? IsCorrect.class : IsIncorrect.class;
+			Intent intent = new Intent(PlayGame.this, c);
 			startActivityForResult(intent, RESULT_IS_CORRECT);
 		}
 	};
@@ -117,9 +117,8 @@ public class PlayGame extends Activity {
 	private OnClickListener btnFalseClicked = new OnClickListener() {
 		public void onClick(View v) {		
 			boolean answer = answers.get(questionIdx);
-			
-			Intent intent = new Intent(PlayGame.this, IsCorrect.class);
-			intent.putExtra("isCorrect", answer == false);
+			Class c = answer == false ? IsCorrect.class : IsIncorrect.class;
+			Intent intent = new Intent(PlayGame.this, c);
 			startActivityForResult(intent, RESULT_IS_CORRECT);
 		}
 	};

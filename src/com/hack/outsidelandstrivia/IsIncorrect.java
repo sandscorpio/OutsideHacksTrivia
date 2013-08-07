@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-public class IsCorrect extends Activity {
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+
+public class IsIncorrect extends Activity {
 	private static final int RESULT_CHECK_FOR_BUNDLES = RESULT_FIRST_USER;
 	
 	private RelativeLayout lay;
@@ -18,7 +20,7 @@ public class IsCorrect extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_is_correct);
+		setContentView(R.layout.activity_is_incorrect);
 		
 		Intent intent = getIntent();
 		
