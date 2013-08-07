@@ -21,6 +21,7 @@ import com.parse.ParseQuery;
 
 public class PlayGame extends Activity {
 	private static final int RESULT_IS_CORRECT = RESULT_FIRST_USER;
+	private static final int RESULT_IS_GAMEOVER = RESULT_FIRST_USER+1;
 	
 	private TextView txtQuestion;
 	private Button btnTrue, btnFalse;
@@ -29,6 +30,7 @@ public class PlayGame extends Activity {
 	private ArrayList<String> questions = new ArrayList<String>();
 	private ArrayList<Boolean> answers = new ArrayList<Boolean>();
 	private int questionIdx = -1;
+	private boolean isLoser = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,13 +97,11 @@ public class PlayGame extends Activity {
 			txtQuestion.setText(question);
 		}
 		else {
-			//remain at last question
-			questionIdx = questions.size()-1;
-			
-			//quiz finished
-			txtQuestion.setText("Finished!");
-			btnTrue.setVisibility(View.INVISIBLE);
-			btnFalse.setVisibility(View.INVISIBLE);
+			//game over
+			Class c = isLoser ? IsLoser.class : IsWinner.class;
+			Intent intent = new Intent(PlayGame.this, c);
+			startActivityForResult(intent, RESULT_IS_GAMEOVER);
+			finish();
 		}	
 	}
 	
@@ -111,6 +111,12 @@ public class PlayGame extends Activity {
 			Class c = answer == true ? IsCorrect.class : IsIncorrect.class;
 			Intent intent = new Intent(PlayGame.this, c);
 			startActivityForResult(intent, RESULT_IS_CORRECT);
+			
+			if (!isLoser) {
+				if (answer == false) {
+					isLoser = true;
+				}
+			}
 		}
 	};
 	
@@ -120,6 +126,12 @@ public class PlayGame extends Activity {
 			Class c = answer == false ? IsCorrect.class : IsIncorrect.class;
 			Intent intent = new Intent(PlayGame.this, c);
 			startActivityForResult(intent, RESULT_IS_CORRECT);
+			
+			if (!isLoser) {
+				if (answer == true) {
+					isLoser = true;
+				}
+			}
 		}
 	};
 

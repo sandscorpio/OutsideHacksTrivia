@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".IsLoser" >
+    
+    <ImageView
+        android:id="@+id/imgHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/header"
+        android:layout_alignParentTop="true" />
+    
+    <ImageView 
+    	android:id="@+id/imgBorder"
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"   
+    	android:src="@drawable/border_element"
+    />
+    
+     <Button
+        android:id="@+id/btnChallenge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/challenge_btn_words"
+        android:layout_above="@id/imgBorder" />
+     
+     <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/next_game_btn_words"
+        android:layout_above="@id/btnChallenge" />
+    
+    <ImageView
+        android:id="@+id/imgLoser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yr_a_loser"
+        android:layout_below="@id/imgHeader"
+        android:layout_above="@id/btnNext" />
+ 
+</RelativeLayout>
