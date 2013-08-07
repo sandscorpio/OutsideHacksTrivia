@@ -13,12 +13,11 @@
         android:src="@drawable/header"
         android:layout_alignParentTop="true" />
     
-    <Button
+    <ImageView
         android:id="@+id/btnNext"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/orange_btn"
-        android:text="Next"
+        android:src="@drawable/next_question"
         android:layout_alignParentBottom="true" />
     
     <ImageView

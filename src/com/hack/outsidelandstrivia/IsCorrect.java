@@ -6,15 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class IsCorrect extends Activity {
 	private static final int RESULT_CHECK_FOR_BUNDLES = RESULT_FIRST_USER;
 	
 	private RelativeLayout lay;
-	private Button btnNext;
+	private ImageView btnNext;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class IsCorrect extends Activity {
 		lay = (RelativeLayout) findViewById (R.id.lay);		
 		lay.setOnClickListener(finishClicked);
 		
-		btnNext = (Button) findViewById (R.id.btnNext);		
+		btnNext = (ImageView) findViewById (R.id.btnNext);		
 		btnNext.setOnClickListener(finishClicked);
 	}
 	
