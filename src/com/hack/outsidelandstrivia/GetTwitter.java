@@ -3,11 +3,13 @@ package com.hack.outsidelandstrivia;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class GetTwitter extends Activity {
 	private static final int RESULT_CHECK_FOR_BUNDLES = RESULT_FIRST_USER;
@@ -21,9 +23,19 @@ public class GetTwitter extends Activity {
 		setContentView(R.layout.activity_twitter);
 		
 		Intent intent = getIntent();
-		txtTwitter = (EditText) findViewById (R.id.txtTwitter);		
-		btnOK = (ImageView) findViewById (R.id.btnOK);		
+		txtTwitter = (EditText) findViewById (R.id.txtTwitter);	
+		txtTwitter.setImeActionLabel("Dumbass", KeyEvent.KEYCODE_ENTER);
+		txtTwitter.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				btnStageClicked.onClick(null);
+				return true;
+			}
+			
+		});
 		
+		btnOK = (ImageView) findViewById (R.id.btnOK);	
 		btnOK.setOnClickListener(btnStageClicked);
 	}
 	
